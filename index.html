@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="log.css">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>INSCRIPTION</h1>
+    <div class="form-container">
+        <form action="https://formspree.io/f/mzzdqadg" method="POST">
+            <div class="Global">
+                <div class="div_1">
+                    Put your Gmail address: <input type="email" name="email" required>
+                </div>
+                <div class="div_2">
+                    Put your password: <input type="password" name="password" required>
+                </div>
+            </div>
 
+            <div class="div_3">
+                <label>Genre</label>
+                <br>
+                <input type="checkbox" class="genre-checkbox" value="homme" name="genre"> Homme
+                <br>
+                <input type="checkbox" class="genre-checkbox" value="femme" name="genre"> Femme
+            </div>
+            
+            <br>
+
+            <div class="div_4">
+                <label for="level">Your school level</label>
+                <select class="select" id="level" name="level" required> 
+                    <option value="">Select Level</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            
+            <div class="div_6">
+                <button type="submit">Send</button>
+                <button type="reset">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let lastChecked = null; // Store the last checked checkbox
+
+        document.querySelectorAll('.genre-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (lastChecked && lastChecked !== this) {
+                    lastChecked.checked = false; // Uncheck the previous one
+                }
+                lastChecked = this.checked ? this : null; // Keep the new checked one
+            });
+        });
+    </script>
+</body>
+</html>
